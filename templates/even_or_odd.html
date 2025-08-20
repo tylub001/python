@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Even or Odd</title>
+  </head>
+  <body>
+    <h1>Check if a number is Even or Odd</h1>
+    <form method="POST">
+      <label>Enter a number:</label><br />
+      <input type="number" name="number" required /><br /><br />
+      <button type="submit">Check</button>
+    </form>
+    <button onclick="location.href='/'">Go Back to Homepage</button>
+
+    {% if result %}
+    <h2>Output:</h2>
+    <p>{{ result }}</p>
+    {% endif %}
+  </body>
+</html>

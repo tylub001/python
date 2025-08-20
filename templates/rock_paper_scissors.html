@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rock Paper Scissors</title>
+  </head>
+  <body>
+    <h1>Rock, Paper, Scissors!</h1>
+    <form method="POST">
+      <label>Choose your element:</label><br />
+      <input type="radio" name="element" value="rock" /> Rock<br />
+      <input type="radio" name="element" value="paper" /> Paper<br />
+      <input type="radio" name="element" value="scissors" />
+      Scissors<br /><br />
+      <input type="submit" value="Play" />
+    </form>
+    <button onclick="location.href='/'">Go Back to Homepage</button>
+    {% if result %}
+    <h2>You chose: {{ user }}</h2>
+    <pre>{{ user_art }}</pre>
+
+    <h2>Computer chose: {{ computer }}</h2>
+    <pre>{{ computer_art }}</pre>
+
+    <h2>{{ result }}</h2>
+    {% endif %}
+  </body>
+</html>

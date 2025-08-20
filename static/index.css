@@ -1,0 +1,207 @@
+/* Base styles */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: black;
+  font-family: sans-serif;
+  color: lime;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Layout containers */
+.left, .center, .right {
+  padding: 1rem;
+}
+
+.left {
+  border-right: 2px solid rgb(255, 153, 0);
+  box-shadow: 0 0 10px rgb(252, 235, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.center {
+  font-size: 1.5rem;
+  background-image: url(../static/images/city1.webp);
+  background-size: cover;
+  background-position: center;
+}
+
+.right {
+  border-left: 2px solid rgb(0, 183, 255);
+  box-shadow: 0 0 10px rgb(0, 17, 253);
+   display: flex;
+  flex-direction: column;
+}
+
+/* Responsive grid layout */
+@media (min-width: 768px) {
+  body {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+  }
+}
+
+/* Typography */
+p {
+  color: rgb(255, 251, 0);
+  text-align: center;
+  line-height: 1.4;
+  padding: 1rem;
+}
+
+.description {
+  color: rgb(250, 0, 125);
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-weight: 200;
+  text-align: center;
+  margin: 1rem 0 2rem;
+  font-size: 1.5rem;
+}
+
+.paragraph {
+  font-size: 1rem;
+  font-weight: 200;
+  line-height: 1.5;
+  padding: 1rem;
+}
+
+.blue {
+  color: aqua;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-weight: 200;
+}
+
+/* Button */
+button {
+  margin: 1rem auto;
+  background-color: black;
+  color: lime;
+  border-radius: 20px;
+  border: 2px solid lime;
+  padding: 0.5rem 1.5rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px lime;
+}
+
+/* Container and content cards */
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 1.5rem;
+}
+
+.content {
+  background-color: rgba(0, 0, 0, 0.75);
+  color: white;
+  flex: 1 1 300px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Cat image */
+.cat {
+  width: 150px;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+/* Coolcat animation */
+.coolcat {
+  width: 100px;
+  margin-right: 10px;
+  transform-origin: center;
+  animation: dropIn 1s ease-out forwards, rock 4s infinite ease-in-out 1s;
+}
+
+/* Glitch text */
+.glitch {
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem 0;
+}
+
+/* Flicker animations */
+.blink, .blink2, .blink3 {
+  display: inline-block;
+  color: lime;
+}
+
+.blink {
+  animation: flicker 0.6s ease-in-out 3;
+}
+
+.blink2 {
+  animation: flicker2 0.4s ease-in-out 5;
+}
+
+.blink3 {
+  animation: flicker3 0.4s ease-in-out 15;
+}
+
+/* Glowing line */
+.line {
+  position: absolute;
+  top: 50%;
+  left: -100%;
+  width: 100%;
+  height: 4px;
+  background: lime;
+  box-shadow: 0 0 10px lime, 0 0 20px lime;
+  animation: slide-across 1s ease forwards;
+  z-index: 1;
+}
+
+/* Keyframes */
+@keyframes flicker {
+  0% { opacity: 0; color: rgb(44, 255, 2); }
+  20% { opacity: 0.2; color: black; }
+  40% { opacity: 0; color: lime; }
+  60% { opacity: 0.5; color: black; }
+  80% { opacity: 0.1; color: rgb(229, 255, 0); }
+  100% { opacity: 0.5; color: rgb(0, 255, 0); }
+}
+
+@keyframes flicker2 {
+  33% { opacity: 0.2; color: black; }
+  77% { opacity: 0.5; color: black; }
+  80% { opacity: 1; color: rgb(0, 0, 0); }
+  99% { opacity: 1; color: lime; }
+}
+
+@keyframes flicker3 {
+  33% { opacity: 0.2; color: black; }
+  77% { opacity: 0.5; color: black; }
+  80% { opacity: 1; color: rgb(0, 0, 0); }
+  99% { opacity: 1; color: lime; }
+}
+
+@keyframes dropIn {
+  0% { transform: translateY(-100vh) scale(0.8); opacity: 0; }
+  100% { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+@keyframes rock {
+  0% { transform: rotate(10deg); }
+  50% { transform: rotate(-10deg); }
+  100% { transform: rotate(10deg); }
+}
+
+@keyframes slide-across {
+  0% { left: -100%; opacity: 0; }
+  50% { opacity: 1; }
+  100% { left: 100%; opacity: 0; }
+}

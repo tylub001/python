@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Brittany's Projects</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='index.css') }}"
+    />
+  </head>
+  <body>
+    <div class="left">
+      <button onclick="location.href='/tip'">Tip Calculator</button>
+      <button onclick="location.href='/bin'">Binary Converter</button>
+      <button onclick="location.href='/even-odd'">Even or Odd</button>
+      <button onclick="location.href='/bmi'">BMI Calculator</button>
+      <button onclick="location.href='/pizza'">Order Pizza</button>
+      <button onclick="location.href='/quest'">Orb Quest</button>
+      <button onclick="location.href='/game'">Rock Paper Scissors</button>
+      <button onclick="location.href='/password'">Password Generator</button>
+      <button onclick="location.href='/pong'">Pong</button>
+      <button onclick="location.href='/hangman'">Hangman</button>
+
+      <button onclick="location.href='/'">Homepage</button>
+    </div>
+
+    <div class="center">
+      <h1 class="glitch" data-text="Welcome to My Portfolio">
+        <img
+          class="coolcat"
+          src="{{ url_for('static', filename='images/coocat2.png') }}"
+          alt="Neon Cat"
+        />
+        <span class="blink">W</span>elcome t<span class="blink2">o</span
+        >&nbsp;<span class="blue">bluePAW</span>&nbsp;Tech
+      </h1>
+      <h3 class="description">Mini Apps Playground</h3>
+      <div class="container">
+        <div class="content">
+          <h2 class="paragraph">
+            Blue Paw Tech is a vibrant showcase of bite-sized Python and
+            JavaScript projects. It’s my personal playground for learning,
+            experimenting, and documenting my growth as a developer. 
+          </h2>
+        </div>
+
+        <div class="content">
+          <h2 class="paragraph">
+          From mini
+            games and data-driven dashboards to quirky automation scripts, every
+            project reflects a new concept I’ve tackled or a skill I’ve leveled
+            up. The site is simple by design, but rich in intention—highlighting
+            where I am in my Python journey and where I’m headed next.
+          </h2>
+        </div>
+        <div class="content">
+          <h2 class="paragraph">
+            Whether
+            you're a fellow learner, recruiter, or just curious, Blue Paw Tech
+            offers a transparent look into my evolving toolkit and creative
+            mindset. Come explore what I’ve built—and what I’m building next.
+          </h2>
+          <p>Powered by Cloud the cat</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="right">
+      <img
+        class="cat blink"
+        src="{{ url_for('static', filename='images/cat7.png') }}"
+        alt="Neon Cat"
+      />
+      <img
+        class="cat"
+        src="{{ url_for('static', filename='images/catlogo.PNG') }}"
+        alt="Neon Cat"
+      />
+      <img
+        class="cat blink3"
+        src="{{ url_for('static', filename='images/cat5.png') }}"
+        alt="Neon Cat"
+      />
+      <img
+        class="cat"
+        src="{{ url_for('static', filename='images/coocat2.png') }}"
+        alt="Neon Cat"
+      />
+    </div>
+
+    <script>
+      const buttons = document.querySelectorAll("button");
+
+      buttons.forEach((button) => {
+        button.addEventListener("mouseenter", () => {
+          const rect = button.getBoundingClientRect();
+          const line = document.createElement("div");
+          line.classList.add("line");
+
+          // Position the line at the center of the button
+          line.style.top = `${rect.top + rect.height / 2}px`;
+          line.style.left = `${rect.left}px`;
+
+          document.body.appendChild(line);
+
+          setTimeout(() => {
+            line.remove();
+          }, 1000); // Remove after animation
+        });
+      });
+    </script>
+  </body>
+</html>

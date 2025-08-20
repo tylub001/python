@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Text to Binary Converter</title>
+</head>
+<body>
+    <h1>Convert Text to Binary</h1>
+    <form method="POST">
+        <label>Enter a sentence:</label><br>
+        <input type="text" name="sentence" required><br><br>
+        <button type="submit">Convert</button>
+    </form>
+      <button onclick="location.href='/'">Go Back to Homepage</button>
+
+    {% if binary_result %}
+        <h2>Binary Output:</h2>
+        <p>{{ binary_result }}</p>
+    {% endif %}
+</body>
+</html>

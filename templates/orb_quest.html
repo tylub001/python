@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Orb Quest</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; background: #f0f8ff; }
+    .hidden { display: none; }
+    .story { margin-top: 20px; }
+  </style>
+</head>
+<body>
+    
+  <h1>✨ Welcome to Orb Quest!</h1>
+
+  <div id="step1">
+    <p>Two orbs float before you...</p>
+    <button onclick="chooseOrb('green')">Choose GREEN Orb</button>
+    <button onclick="chooseOrb('red')">Choose RED Orb</button>
+  </div>
+
+  <div id="story" class="story"></div>
+
+  <script>
+    let inventory = [];
+
+    function chooseOrb(choice) {
+      document.getElementById("step1").classList.add("hidden");
+      const story = document.getElementById("story");
+
+      if (choice === "green") {
+        story.innerHTML = `
+          🌿 The green orb pulses with life. You feel stronger.<br>
+          You gain the ability to heal wounds and speak to animals.<br>
+          <button onclick="healWolf()">HEAL the wolf</button>
+          <button onclick="gameOver('🌪️ You flee, but get lost in a storm.')">FLEE</button>
+        `;
+      } else if (choice === "red") {
+        story.innerHTML = `
+          💧 The red orb hums with mystery. You feel your mind expand.<br>
+          You gain telepathy and water manipulation.<br>
+          <button onclick="partRiver()">PART the river</button>
+          <button onclick="gameOver('🪵 You build a bridge, but it collapses.')">BUILD a bridge</button>
+        `;
+      }
+    }
+
+    function healWolf() {
+      const story = document.getElementById("story");
+      story.innerHTML = `
+        🐺 The wolf becomes your ally and leads you to a hidden forest temple.<br>
+        Inside the temple, you find a dark cave entrance.<br>
+        <button onclick="enterCave()">ENTER the cave</button>
+        <button onclick="faceSorcerer()">IGNORE the cave</button>
+      `;
+    }
+
+    function enterCave() {
+      inventory.push("sword");
+      faceSorcerer();
+    }
+
+    function faceSorcerer() {
+      const story = document.getElementById("story");
+      if (inventory.includes("sword")) {
+        story.innerHTML = `
+          ⚔️ You reach the final chamber. The evil sorcerer appears!<br>
+          💥 You wield the sword and defeat the sorcerer!<br>
+          🎉 You saved the realm and the princess!
+        `;
+      } else {
+        gameOver("🧙‍♂️ The sorcerer laughs. You have no weapon. Game Over.");
+      }
+    }
+
+    function partRiver() {
+      const story = document.getElementById("story");
+      story.innerHTML = `
+        🌊 The water obeys and reveals a glowing staircase.<br>
+        A dragon appears.<br>
+        <button onclick="feedDragon()">FEED the dragon</button>
+        <button onclick="gameOver('🔥 The dragon incinerates you. Game Over.')">SLAY the dragon</button>
+      `;
+    }
+
+    function feedDragon() {
+      const story = document.getElementById("story");
+      story.innerHTML = `
+        🐉 The dragon is grateful and joins you.<br>
+        Goblins attack!<br>
+        <button onclick="fleeDragon()">FLEE on dragon</button>
+        <button onclick="fightGoblins()">FIGHT with dragon</button>
+      `;
+    }
+
+    function fleeDragon() {
+      const story = document.getElementById("story");
+      story.innerHTML = `
+        🕊️ You escape through the cave and soar into the sky.<br>
+        Time to land...<br>
+        <button onclick="gameOver('🧗 You slip on a mountain cliff. Game Over.')">LAND on MOUNTAIN</button>
+        <button onclick="safeLanding()">LAND in FIELD</button>
+      `;
+    }
+
+    function fightGoblins() {
+      const story = document.getElementById("story");
+      story.innerHTML = `
+        🗡️ You and your dragon defeat the goblins.<br>
+        You discover a chest.<br>
+        <button onclick="openChest()">OPEN the chest</button>
+        <button onclick="gameOver('You walk past the chest. It was your only hope. Game Over.')">LEAVE it</button>
+      `;
+    }
+
+    function openChest() {
+      const story = document.getElementById("story");
+      story.innerHTML = `
+        🎁 Inside the chest is a magical amulet.<br>
+        You feel unstoppable. Your quest continues!
+      `;
+    }
+
+    function safeLanding() {
+      const story = document.getElementById("story");
+      story.innerHTML = `
+        🌾 You land safely in a field.<br>
+        It's getting late...<br>
+        <button onclick="gameOver('🌙 You camp and are ambushed. Game Over.')">CAMP</button>
+        <button onclick="openChest()">CONTINUE your quest</button>
+      `;
+    }
+
+    function gameOver(message) {
+      const story = document.getElementById("story");
+      story.innerHTML = `<strong>${message}</strong>`;
+    }
+  </script>
+</body>
+</html>

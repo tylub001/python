@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pizza Order</title>
+</head>
+<body>
+  <h1>Order Your Pizza</h1>
+  <form method="POST">
+    <label>Choose size:</label><br />
+    <select name="size" required>
+      <option value="S">Small</option>
+      <option value="M">Medium</option>
+      <option value="L">Large</option>
+    </select><br /><br />
+
+    <label>Add pepperoni?</label><br />
+    <input type="radio" name="pepperoni" value="Y" required> Yes
+    <input type="radio" name="pepperoni" value="N"> No<br /><br />
+
+    <label>Add extra cheese?</label><br />
+    <input type="radio" name="cheese" value="Y" required> Yes
+    <input type="radio" name="cheese" value="N"> No<br /><br />
+
+    <button type="submit">Place Order</button>
+  </form>
+
+  <button onclick="location.href='/'">Go Back to Homepage</button>
+
+  {% if total %}
+    <h2>Your total comes to: ${{ total }}</h2>
+  {% endif %}
+</body>
+</html>

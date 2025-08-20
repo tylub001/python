@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hangman Game</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        padding: 2rem;
+      }
+      .word {
+        font-size: 2rem;
+        letter-spacing: 1rem;
+      }
+      .ascii-art {
+        white-space: pre;
+        font-family: monospace;
+        margin: 1rem 0;
+      }
+      input[type="text"] {
+        font-size: 1.2rem;
+        padding: 0.5rem;
+      }
+      button {
+        font-size: 1.2rem;
+        padding: 0.5rem 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Hangman</h1>
+    <div class="ascii-art">{{ ascii }}</div>
+    <div class="word">{{ display }}</div>
+    <form method="POST">
+      <input type="text" name="guess" maxlength="1" required autofocus />
+      <button type="submit">Guess</button>
+    </form>
+    <button onclick="location.href='/'">Go Back to Homepage</button>
+    <p>Wrong guesses: {{ wrong_guesses }}</p>
+    {% if message %}
+    <p><strong>{{ message }}</strong></p>
+    {% endif %} {% if message %}
+    <p><strong>{{ message }}</strong></p>
+    {% if session.get("game_over") or "_" not in display %}
+    <form action="/restart">
+      <button type="submit">Restart Game</button>
+    </form>
+    {% endif %} {% endif %}
+  </body>
+</html>
