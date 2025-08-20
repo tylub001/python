@@ -468,3 +468,70 @@ h2 {
   transform: scale(1.2);
   box-shadow: 0 0 10px #00ffcc;
 }
+
+@media (max-width: 750px) {
+  .nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .nav a,
+  .nav__button {
+    font-size: 1rem;
+    width: 100%;
+    text-align: center;
+  }
+
+  .header {
+    background-color: #111;
+    padding: 1rem 0;
+  }
+
+  .navbar {
+    position: static;
+  }
+
+  .about__container {
+    padding: 0;
+  }
+
+  .home_container {
+    margin: 0;
+    padding: 10px 10px;
+  }
+
+  .grid-container {
+    padding: 0;
+    width: 100%;
+    grid-template-columns: 1fr;
+  }
+
+  .skills-grid {
+    justify-self: center;
+  }
+
+  .portfolio__content {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 0;
+  }
+  .connect {
+    width: 100%;
+    font-size: 1rem;
+    padding: 0 10px;
+    text-align: center;
+  }
+
+  .home__text {
+    margin-top: auto;
+    text-align: center;
+    font-weight: 600;
+  }
+
+  .about__paragraph1, .about__paragraph2, .about__paragraph3 {
+    padding: 0 10px;
+  }
+}
